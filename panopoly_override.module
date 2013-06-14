@@ -1,0 +1,37 @@
+<?php
+/**
+ * @file
+ * Controller for panopoly feature overrides
+ */
+
+
+$override_path = drupal_get_path('module', 'panopoly_override');
+
+// Extend panopoly_admin
+require_once $override_path . '/features/panopoly_admin.inc';
+
+// Extend panopoly_core
+require_once $override_path . '/features/panopoly_core.inc';
+
+// Extend panopoly_images 
+require_once $override_path . '/features/panopoly_images.inc';
+
+// Extend panopoly_magic 
+require_once $override_path . '/features/panopoly_magic.inc';
+
+// Extend panopoly_pages
+require_once $override_path . '/features/panopoly_pages.inc';
+
+// Extend panopoly_theme 
+require_once $override_path . '/features/panopoly_theme.inc';
+
+// Extend panopoly_users 
+require_once $override_path . '/features/panopoly_users.inc';
+
+// Extend panopoly_widgets
+require_once $override_path . '/features/panopoly_widgets.inc';
+
+// Extend panopoly_wysiwyg
+require_once $override_path . '/features/panopoly_wysiwyg.inc';
+
+
