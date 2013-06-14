@@ -74,4 +74,4 @@ Default Hooks
 
 This module only contains a brief list of hooks to override exportable components. 
 For a more complete list of hooks please check out:
-https://kalamuna.atlassian.net/wiki/display/KALA/Panopoly+Overrides
+https://kalamuna.atlassian.net/wiki/display/KALA/Panopoly+Override
