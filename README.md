@@ -12,18 +12,19 @@ You might not want to use this method in combination with features override
 and you should only try to implement these hooks using a 
 EXTENDEDMODULE/TAG_override namespacing. If you want to provide an override 
 of an override you should be able to continue this procedure indefinitely. 
-  
-```  Examples:
-    Overriding panopoly_wysiwyg variables:
-      module name  : panopoly_override/panopoly_wysiwyg_override
-      include file : panopoly_override/features/panopoly_wysiwyg.inc
-      hook name    : panopoly_wysiwyg_strongarm_alter()
+
+```
+Example: Overriding panopoly_wysiwyg variables
+  module name  : panopoly_override/panopoly_wysiwyg_override
+  include file : panopoly_override/features/panopoly_wysiwyg.inc
+  hook name    : panopoly_wysiwyg_strongarm_alter()
       
-    Overriding panopoly_wysiqyg_override variables:
-      module name  : panopoly_override_override
-      include file : panopoly_override_override/features/
-                     panopoly_wysiwyg_override.inc
-      hook name    : panopoly_wysiwyg_strongarm_alter()```
+Example: Overriding panopoly_wysiqyg_override variables:
+  module name  : panopoly_override_override
+  include file : panopoly_override_override/features/
+                 panopoly_wysiwyg_override.inc
+  hook name    : panopoly_wysiwyg_strongarm_alter()
+```
       
 To be honest I haven't actually tried the recursive override yet so its possible
 it just doesn't even work. Definitely need to make sure that 
@@ -48,23 +49,26 @@ identify and deploy these changes.
 However, if you have a override that is applicable to a single site. You might want 
 to bundle in an override to a feature that makes sense. For example.
 
- ``` example_admin.module
-  example_admin/overrides/panopoly_admin.inc```
+```
+example_admin.module
+example_admin/overrides/panopoly_admin.inc
+```
   
 We think that it is a good to try and mimic the feature seperation used in 
 panopoly in other features so there is a consistent way to group funtionality.
 Here is a list of panopoly features and a hypothetical list of additional features
+
 ```
- panopoly_admin       =>    example_admin
- panopoly_core        =>    example_core
- panopoly_images      =>    example_images
- panopoly_magic       =>    example_magic
- panopoly_pages       =>    example_pages
- panopoly_theme       =>    example_theme 
- panopoly_users       =>    example_users
- panopoly_widgets     =>    example_widgets
- panopoly_wysiwyg     =>    example_wysiywg
- ```
+panopoly_admin       =>    example_admin
+panopoly_core        =>    example_core
+panopoly_images      =>    example_images
+panopoly_magic       =>    example_magic
+panopoly_pages       =>    example_pages
+panopoly_theme       =>    example_theme 
+panopoly_users       =>    example_users
+panopoly_widgets     =>    example_widgets
+panopoly_wysiwyg     =>    example_wysiywg
+```
 Default Hooks
 =============
 
