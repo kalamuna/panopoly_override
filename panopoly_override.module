@@ -3,35 +3,60 @@
  * @file
  * Controller for panopoly feature overrides
  */
-
+/**
+ *
+ * We are using this method to override and extend panopoly features without
+ * introducing "overridden" statuses.
+ *
+ * We are somewhat "hijacking" the functional namespaces of the modules to be
+ * extended. This means that we need to check to see whether these functions have
+ * been defined yet or not otherwise we will be breaking lots of shit.
+ *
+ * You should not use this method in combination with features override and you
+ * should only try to implement these hooks using a EXTENDEDMODULE/TAG_override
+ * namespacing. If you want to provide an override of an override you should be
+ * able to continue to this procedure indefinitely.
+ *
+ * Examples:
+ *   Overriding panopoly_wysiwyg variables:
+ *     module name : panopoly_override/panopoly_wysiwyg_override
+ *     hook name   : panopoly_wysiwyg_strongarm_alter()
+ *
+ *   Overriding panopoly_wysiqyg_override variables:
+ *     module name : panopoly_override_override/panopoly_wysiwyg_override_override
+ *     hook name   : panopoly_wysiwyg_override_strongarm_alter()
+ *
+ * To be honest I haven't actually tried the recursive override yet so its possible
+ * it just doesn't even work.
+ *
+ * It is also important to note that you cannot alter the "dependency" component in
+ * the same way as the other components. In order to "override" a dependency you
+ * need to invoke EXTENDEDMODULE_features_export_alter from EXTENDEDMODULE/TAG_override
+ * and unset the dependency. This will remove the "overriden" status but will also remove
+ * the dependency. To actually set the dependency follow the normal procedure in the
+ * EXTENDEDMODULE/TAG_override info file. I am unsure what the consequnces of doing this
+ * are.
+ *
+ */
 
 $override_path = drupal_get_path('module', 'panopoly_override');
-
 // Extend panopoly_admin
 require_once $override_path . '/features/panopoly_admin.inc';
-
 // Extend panopoly_core
 require_once $override_path . '/features/panopoly_core.inc';
-
-// Extend panopoly_images 
-require_once $override_path . '/features/panopoly_images.inc';
-
-// Extend panopoly_magic 
-require_once $override_path . '/features/panopoly_magic.inc';
-
+// Extend panopoly_images - This has no overrides as of now
+// require_once $override_path . '/features/panopoly_images.inc';
+// Extend panopoly_magic - This has no overrides as of now
+// require_once $override_path . '/features/panopoly_magic.inc';
 // Extend panopoly_pages
 require_once $override_path . '/features/panopoly_pages.inc';
-
-// Extend panopoly_theme 
-require_once $override_path . '/features/panopoly_theme.inc';
-
-// Extend panopoly_users 
-require_once $override_path . '/features/panopoly_users.inc';
-
+// Extend panopoly_theme - This has no overrides as of now
+// require_once $override_path . '/features/panopoly_theme.inc';
+// Extend panopoly_users - This has no overrides as of now
+// require_once $override_path . '/features/panopoly_users.inc';
+// Extend panopoly_search
+require_once $override_path . '/features/panopoly_search.inc';
 // Extend panopoly_widgets
 require_once $override_path . '/features/panopoly_widgets.inc';
-
 // Extend panopoly_wysiwyg
 require_once $override_path . '/features/panopoly_wysiwyg.inc';
-
-

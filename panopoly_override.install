@@ -1,0 +1,21 @@
+<?php
+/**
+ * @file
+ * Update and install functions for Panopoly Override
+ */
+
+/**
+ * Implementation of hook_install().
+ */
+function panopoly_override_install() {
+  // Caption Filter needs to load after the Panopoly features.
+  db_query("UPDATE {system} SET weight = 32 WHERE type = 'module' AND name = 'panopoly_override'");
+}
+
+/**
+ * Set the Panopoly Override module weight.
+ */
+function panopoly_override_update_7100() {
+  // Panopoly Override needs to load after Panopoly features.
+  db_query("UPDATE {system} SET weight = 32 WHERE type = 'module' AND name = 'panopoly_override'");
+}
